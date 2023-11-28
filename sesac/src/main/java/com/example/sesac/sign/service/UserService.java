@@ -11,5 +11,5 @@ public interface UserService {
     void createUser(UserDto userDto);
     
     //DB에서 가입한 회원ID가 있는지 조회
-//    void selectUserId(LoginDto userId);
+    UserDto loginUser(LoginDto loginDto);
 }

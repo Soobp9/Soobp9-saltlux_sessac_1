@@ -18,10 +18,10 @@ public class UserServiceImpl implements UserService {
         userRepository.save(User.toEntity(userDto));
 
     }
-//    @Override
-//    public void selectUserId(LoginDto userId){
-//        return userRepository.findAllById(userId).map(User::toDto).orElseThrow();
-//    }
+    @Override
+    public UserDto loginUser(LoginDto loginDto){
+        return userRepository.findById(loginDto.getUserId()).map(User::toDto).orElseThrow();
+    }
 
 
 }
