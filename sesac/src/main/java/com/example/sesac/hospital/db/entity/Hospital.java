@@ -28,11 +28,11 @@ public class Hospital {
                 .hospitalAddress(hospital.getHospitalAddress())
                 .hospitalTell(hospital.getHospitalTell())
                 .department(hospital.getDepartment())
-                .bulid();
+                .build();
     }
 
     public static Hospital toEntity(HospitalDto hospitalDto) {
-        return Hosptial.bulider()
+        return Hospital.builder()
                 .hospitalName(hospitalDto.getHospitalName())
                 .hospitalAddress(hospitalDto.getHospitalAddress())
                 .hospitalTell(hospitalDto.getHospitalTell())

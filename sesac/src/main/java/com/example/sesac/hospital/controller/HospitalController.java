@@ -21,13 +21,11 @@ public class HospitalController {
     @GetMapping("{hospitalId}")
     public ResponseEntity<HospitalDto> getOneHospital(@PathVariable Long hospitalId) {
         return new ResponseEntity<>(hospitalService.getHospital(hospitalId), HttpStatus.OK);
-        // return hospitalService.getHospitalById(hospitalId);
     }
 
     // 모든 병원 정보 조회
     @GetMapping
     public ResponseEntity<List<HospitalDto>> getAllHospitals() {
         return new ResponseEntity<>(hospitalService.getAll(), HttpStatus.OK);
-//        return hospitalService.getAllHospitals();
     }
 }

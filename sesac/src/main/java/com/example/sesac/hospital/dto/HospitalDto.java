@@ -12,11 +12,11 @@ public class HospitalDto {
     private String department;
 
     @Builder
-    public HospitalDto(Long hospitalId, String name, String address, String Tell, String department) {
+    public HospitalDto(Long hospitalId, String hospitalName, String hospitalAddress, String hospitalTell, String department) {
         this.hospitalId = hospitalId;
-        this.hospitalName = name;
-        this.hospitalAddress = address;
-        this.hospitalTell = Tell;
+        this.hospitalName = hospitalName;
+        this.hospitalAddress = hospitalAddress;
+        this.hospitalTell = hospitalTell;
         this.department = department;
     }
 }
