@@ -9,9 +9,11 @@ import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.DynamicInsert;
 
 @Entity
 @NoArgsConstructor
+@DynamicInsert
 @Getter
 public class User {
 
@@ -24,10 +26,24 @@ public class User {
     private String userTell;
     private String userGender;
     private String userEmail;
+//    @ColumnDefault("`users`")
+//    private String role;
 
     //가입날짜, 생일, ... 추가 필요!
 
-    public static UserDto toDto(User user){
+    @Builder
+    public User(Long userSequence, String userId, String userPw, String userAddr
+            , String userTell, String userGender, String userEmail) {
+        this.userSequence = userSequence;
+        this.userId = userId;
+        this.userPw = userPw;
+        this.userAddr = userAddr;
+        this.userTell = userTell;
+        this.userGender = userGender;
+        this.userEmail = userEmail;
+    }
+
+    public static UserDto toDto(User user) {
         return UserDto.builder()
                 .userSequence(user.getUserSequence())
                 .userId(user.getUserId())
@@ -39,7 +55,7 @@ public class User {
                 .build();
     }
 
-    public static User toEntity(UserDto userDto){
+    public static User toEntity(UserDto userDto) {
         return User.builder()
                 .userId(userDto.getUserId())
                 .userPw(userDto.getUserPw())
@@ -49,20 +65,6 @@ public class User {
                 .userEmail(userDto.getUserEmail())
                 .build();
     }
-
-    @Builder
-    public User(Long userSequence, String userId, String userPw, String userAddr
-            , String userTell, String userGender, String userEmail){
-        this.userSequence = userSequence;
-        this.userId = userId;
-        this.userPw = userPw;
-        this.userAddr = userAddr;
-        this.userTell = userTell;
-        this.userGender = userGender;
-        this.userEmail = userEmail;
-    }
-
-
 
 
 }
