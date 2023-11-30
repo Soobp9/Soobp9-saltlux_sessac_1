@@ -48,7 +48,7 @@ public class User {
                 .userId(user.getUserId())
                 .userPw(user.getUserPw())
                 .userName(user.getUserName())
-                .userEmail(user.getUserEmail())s
+                .userEmail(user.getUserEmail())
                 .userGender(user.getUserGender())
                 .build();
     }

@@ -20,6 +20,17 @@ public class UserServiceImpl implements UserService {
 
     }
 
+    @Override
+    public UserDto loginUser(LoginDto loginDto) {
+        return userRepository.findByUserId(loginDto.getUserId()).map(User::toDto).orElse(null);
+    }
+
+    @Override
+    public UserDto getUserInfo(String userId) {
+        return userRepository.getUserInfo(userId).map(User::toDto).orElse(null);
+    }
+
+
     //    @Override
 //    public boolean loginResult(LoginDto loginDto){
 //        User user = userRepository.findByUserId(loginDto.getUserId()).map(User::toDto).orElse(null);
@@ -37,10 +48,6 @@ public class UserServiceImpl implements UserService {
 //
 //
 //    }
-    @Override
-    public UserDto loginUser(LoginDto loginDto) {
-        return userRepository.findByUserId(loginDto.getUserId()).map(User::toDto).orElse(null);
-    }
 
 
 }

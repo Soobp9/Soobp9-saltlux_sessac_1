@@ -11,4 +11,7 @@ public interface UserService {
 
     //DB에서 가입한 회원ID가 있는지 조회
     UserDto loginUser(LoginDto loginDto);
+
+    //회원 정보 조회
+    UserDto getUserInfo(String userId);
 }
