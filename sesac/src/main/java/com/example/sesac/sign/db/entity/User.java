@@ -22,25 +22,24 @@ public class User {
     private Long userSequence;
     private String userId;
     private String userPw;
-    private String userAddr;
-    private String userTell;
-    private String userGender;
+    private String userName;
     private String userEmail;
+    private String userGender;
+
 //    @ColumnDefault("`users`")
 //    private String role;
 
     //가입날짜, 생일, ... 추가 필요!
 
     @Builder
-    public User(Long userSequence, String userId, String userPw, String userAddr
-            , String userTell, String userGender, String userEmail) {
+    public User(Long userSequence, String userId, String userPw
+            , String userName, String userEmail, String userGender) {
         this.userSequence = userSequence;
         this.userId = userId;
         this.userPw = userPw;
-        this.userAddr = userAddr;
-        this.userTell = userTell;
-        this.userGender = userGender;
+        this.userName = userName;
         this.userEmail = userEmail;
+        this.userGender = userGender;
     }
 
     public static UserDto toDto(User user) {
@@ -48,10 +47,9 @@ public class User {
                 .userSequence(user.getUserSequence())
                 .userId(user.getUserId())
                 .userPw(user.getUserPw())
-                .userAddr(user.getUserAddr())
-                .userTell(user.getUserTell())
+                .userName(user.getUserName())
+                .userEmail(user.getUserEmail())s
                 .userGender(user.getUserGender())
-                .userEmail(user.getUserEmail())
                 .build();
     }
 
@@ -59,10 +57,9 @@ public class User {
         return User.builder()
                 .userId(userDto.getUserId())
                 .userPw(userDto.getUserPw())
-                .userAddr(userDto.getUserAddr())
-                .userTell(userDto.getUserTell())
-                .userGender(userDto.getUserGender())
+                .userName(userDto.getUserName())
                 .userEmail(userDto.getUserEmail())
+                .userGender(userDto.getUserGender())
                 .build();
     }
 

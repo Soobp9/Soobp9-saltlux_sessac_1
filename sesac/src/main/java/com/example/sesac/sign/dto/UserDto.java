@@ -8,24 +8,24 @@ public class UserDto {
     private Long userSequence;
     private String userId;
     private String userPw;
-    private String userAddr;
-    private String userTell;
-    private String userGender;
+    private String userName;
     private String userEmail;
+    private String userGender;
+
+//    private String userAddr;
+//    private String userTell;
 
 
     @Builder
     public UserDto(Long userSequence, String userId, String userPw
-                    , String userAddr, String userTell, String userGender, String userEmail) {
+            , String userName, String userEmail, String userGender) {
         this.userSequence = userSequence;
         this.userId = userId;
         this.userPw = userPw;
-        this.userAddr =  userAddr;
-        this.userTell = userTell;
+        this.userName = userName;
         this.userGender = userGender;
         this.userEmail = userEmail;
     }
-
 
 
 }
