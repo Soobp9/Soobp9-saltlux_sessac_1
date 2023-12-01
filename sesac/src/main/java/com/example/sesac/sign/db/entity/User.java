@@ -9,12 +9,14 @@ import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.annotations.DynamicInsert;
 
 @Entity
 @NoArgsConstructor
 @DynamicInsert
 @Getter
+@Slf4j
 public class User {
 
     @Id

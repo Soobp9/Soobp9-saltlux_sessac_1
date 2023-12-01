@@ -31,17 +31,21 @@ public class SignController {
 
     //로그인
     @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginDto loginDto, HttpSession session) {
-
+    public ResponseEntity<Long> login(@RequestBody LoginDto loginDto, HttpSession session) {
+//        session = request.getSession();
         UserDto user = userService.loginUser(loginDto);
         if (user != null && user.getUserPw().equals(loginDto.getUserPw())) {
             //로그인 성공
-            session.setAttribute("userId", user.getUserId());
-            return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+            session.setAttribute("userSequence", user.getUserSequence());
+            Object sequenceTest = session.getAttribute("userSequence");
+            Long userSequence = (Long) sequenceTest;
+            System.out.print(userSequence);
+            return new ResponseEntity<>(userSequence, HttpStatus.OK);
         } else {
-            return new ResponseEntity<>(FAIL, HttpStatus.OK);
+            return new ResponseEntity<>(0L, HttpStatus.OK);
         }
 
     }
+
 
 }

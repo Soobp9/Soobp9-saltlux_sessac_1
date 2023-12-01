@@ -25,12 +25,14 @@ public class UserServiceImpl implements UserService {
         return userRepository.findByUserId(loginDto.getUserId()).map(User::toDto).orElse(null);
     }
 
+
     @Override
-    public UserDto getUserInfo(String userId) {
-        return userRepository.getUserInfo(userId).map(User::toDto).orElse(null);
+    public UserDto getUserInfo(Long userSequence) {
+        return userRepository.findById(userSequence).map(User::toDto).orElse(null);
     }
 
 
+    //*****<로그인 기능 추가 예정>*******
     //    @Override
 //    public boolean loginResult(LoginDto loginDto){
 //        User user = userRepository.findByUserId(loginDto.getUserId()).map(User::toDto).orElse(null);
@@ -38,15 +40,10 @@ public class UserServiceImpl implements UserService {
 //            //로그인 성공a
 //            String True = "True";
 //            return True;
-//
-//
-//
 //        }else {
 //            String False = "false";
 //            return False;
 //        }
-//
-//
 //    }
 
 

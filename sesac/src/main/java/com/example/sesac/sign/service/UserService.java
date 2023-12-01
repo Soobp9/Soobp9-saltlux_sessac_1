@@ -13,5 +13,7 @@ public interface UserService {
     UserDto loginUser(LoginDto loginDto);
 
     //회원 정보 조회
-    UserDto getUserInfo(String userId);
+    UserDto getUserInfo(Long userSequence);
+
+
 }
