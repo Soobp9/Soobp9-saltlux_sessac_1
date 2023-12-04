@@ -1,10 +1,8 @@
 package com.example.sesac.hospital.controller;
 
-import com.example.sesac.hospital.db.entity.Hospital;
 import com.example.sesac.hospital.dto.HospitalDto;
 import com.example.sesac.hospital.service.HospitalService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,4 +26,13 @@ public class HospitalController {
     public ResponseEntity<List<HospitalDto>> getAllHospitals() {
         return new ResponseEntity<>(hospitalService.getAll(), HttpStatus.OK);
     }
+
+    // 특정 진료과로 병원 정보 조회
+    @GetMapping
+    public ResponseEntity<List<HospitalDto>> findAllByDepartment(@RequestParam String department) {
+        return new ResponseEntity<>(hospitalService.getHospitalList(department), HttpStatus.OK);
+
+    }
+
+
 }
