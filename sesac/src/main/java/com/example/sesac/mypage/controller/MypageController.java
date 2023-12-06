@@ -25,5 +25,11 @@ public class MypageController {
 
     }
 
+//    @PostMapping
+//    public ResponseEntity<UserDto> getUserInfo(@PathVariable Long userSequence) {
+//        return new ResponseEntity<>(userService.getUserInfo(userSequence), HttpStatus.OK);
+//
+//    }
+
 
 }
