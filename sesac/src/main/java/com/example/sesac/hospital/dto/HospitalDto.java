@@ -9,14 +9,14 @@ public class HospitalDto {
     private String hospitalName;
     private String hospitalAddress;
     private String hospitalTell;
-    private String department;
+    private String hospitalDepartment;
 
     @Builder
-    public HospitalDto(Long hospitalId, String hospitalName, String hospitalAddress, String hospitalTell, String department) {
+    public HospitalDto(Long hospitalId, String hospitalName, String hospitalAddress, String hospitalTell, String hospitalDepartment) {
         this.hospitalId = hospitalId;
         this.hospitalName = hospitalName;
         this.hospitalAddress = hospitalAddress;
         this.hospitalTell = hospitalTell;
-        this.department = department;
+        this.hospitalDepartment = hospitalDepartment;
     }
 }

@@ -1,11 +1,13 @@
 package com.example.sesac.hospital.db.entity;
 
 import com.example.sesac.hospital.dto.HospitalDto;
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.DynamicInsert;
 
 @Entity
 @NoArgsConstructor
@@ -18,8 +20,16 @@ public class Hospital {
     private String hospitalName;
     private String hospitalAddress;
     private String hospitalTell;
-    private String department;
+    private String hospitalDepartment;
 
+
+    @Builder
+    public Hospital(Long hospitalId, String hospitalName, String hospitalAddress, String hospitalTell, String hospitalDepartment) {
+        this.hospitalName = hospitalName;
+        this.hospitalAddress = hospitalAddress;
+        this.hospitalTell = hospitalTell;
+        this.hospitalDepartment = hospitalDepartment;
+    }
 
     public static HospitalDto toDto(Hospital hospital) {
         return HospitalDto.builder()
@@ -27,7 +37,7 @@ public class Hospital {
                 .hospitalName(hospital.getHospitalName())
                 .hospitalAddress(hospital.getHospitalAddress())
                 .hospitalTell(hospital.getHospitalTell())
-                .department(hospital.getDepartment())
+                .hospitalDepartment(hospital.getHospitalDepartment())
                 .build();
     }
 
@@ -36,16 +46,8 @@ public class Hospital {
                 .hospitalName(hospitalDto.getHospitalName())
                 .hospitalAddress(hospitalDto.getHospitalAddress())
                 .hospitalTell(hospitalDto.getHospitalTell())
-                .department(hospitalDto.getDepartment())
+                .hospitalDepartment(hospitalDto.getHospitalDepartment())
                 .build();
-    }
-
-    @Builder
-    public Hospital(Long hospitalId, String hospitalName, String hospitalAddress, String hospitalTell, String department) {
-        this.hospitalName = hospitalName;
-        this.hospitalAddress = hospitalAddress;
-        this.hospitalTell = hospitalTell;
-        this.department = department;
     }
 }
 

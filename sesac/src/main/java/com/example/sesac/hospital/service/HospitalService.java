@@ -11,5 +11,5 @@ public interface HospitalService {
     List<HospitalDto> getAll();
 
     //병원 정보 리스트 조회(진료과 기준)
-    List<HospitalDto> getHospitalList(String department);
+    List<HospitalDto> getHospitalList(String hospitalDepartment);
 }

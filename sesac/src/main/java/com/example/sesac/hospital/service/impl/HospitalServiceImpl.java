@@ -27,7 +27,7 @@ public class HospitalServiceImpl implements HospitalService {
     }
 
     @Override
-    public List<HospitalDto> getHospitalList(String department) {
-        return hospitalRepository.findAllByDepartment(department).stream().map(Hospital::toDto).collect(Collectors.toList());
+    public List<HospitalDto> getHospitalList(String hospitalDepartment) {
+        return hospitalRepository.findAllByHospitalDepartment(hospitalDepartment).stream().map(Hospital::toDto).collect(Collectors.toList());
     }
 }
