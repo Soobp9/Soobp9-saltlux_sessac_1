@@ -16,19 +16,27 @@ public class Hospital {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long hospitalId;
-
     private String hospitalName;
     private String hospitalAddress;
+    private String hospitalCode;
+    private String hospitalPost;
     private String hospitalTell;
-    private String hospitalDepartment;
+    private double hospitalLongitude;
+    private double hospitalLatitude;
 
 
     @Builder
-    public Hospital(Long hospitalId, String hospitalName, String hospitalAddress, String hospitalTell, String hospitalDepartment) {
+    public Hospital(Long hospitalId, String hospitalName, String hospitalAddress
+            , String hospitalCode, String hospitalPost, String hospitalTell
+            , double hospitalLongitude, double hospitalLatitude) {
+        this.hospitalId = hospitalId;
         this.hospitalName = hospitalName;
         this.hospitalAddress = hospitalAddress;
+        this.hospitalCode = hospitalCode;
+        this.hospitalPost = hospitalPost;
         this.hospitalTell = hospitalTell;
-        this.hospitalDepartment = hospitalDepartment;
+        this.hospitalLongitude = hospitalLongitude;
+        this.hospitalLatitude = hospitalLatitude;
     }
 
     public static HospitalDto toDto(Hospital hospital) {
@@ -36,17 +44,24 @@ public class Hospital {
                 .hospitalId(hospital.getHospitalId())
                 .hospitalName(hospital.getHospitalName())
                 .hospitalAddress(hospital.getHospitalAddress())
+                .hospitalCode(hospital.getHospitalCode())
+                .hospitalPost(hospital.getHospitalPost())
                 .hospitalTell(hospital.getHospitalTell())
-                .hospitalDepartment(hospital.getHospitalDepartment())
+                .hospitalLongitude(hospital.getHospitalLongitude())
+                .hospitalLatitude(hospital.getHospitalLatitude())
                 .build();
     }
 
     public static Hospital toEntity(HospitalDto hospitalDto) {
         return Hospital.builder()
+                .hospitalId(hospitalDto.getHospitalId())
                 .hospitalName(hospitalDto.getHospitalName())
                 .hospitalAddress(hospitalDto.getHospitalAddress())
+                .hospitalCode(hospitalDto.getHospitalCode())
+                .hospitalPost(hospitalDto.getHospitalPost())
                 .hospitalTell(hospitalDto.getHospitalTell())
-                .hospitalDepartment(hospitalDto.getHospitalDepartment())
+                .hospitalLongitude(hospitalDto.getHospitalLongitude())
+                .hospitalLatitude(hospitalDto.getHospitalLatitude())
                 .build();
     }
 }
