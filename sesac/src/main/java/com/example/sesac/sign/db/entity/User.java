@@ -24,8 +24,7 @@ public class User {
     private Long userSequence;
     private String userId;
     private String userPw;
-    private String userName;
-    private String userEmail;
+    private Integer userAge;
     private String userGender;
 
 //    @ColumnDefault("`users`")
@@ -35,12 +34,11 @@ public class User {
 
     @Builder
     public User(Long userSequence, String userId, String userPw
-            , String userName, String userEmail, String userGender) {
+            , Integer userAge, String userGender) {
         this.userSequence = userSequence;
         this.userId = userId;
         this.userPw = userPw;
-        this.userName = userName;
-        this.userEmail = userEmail;
+        this.userAge = userAge;
         this.userGender = userGender;
     }
 
@@ -49,8 +47,7 @@ public class User {
                 .userSequence(user.getUserSequence())
                 .userId(user.getUserId())
                 .userPw(user.getUserPw())
-                .userName(user.getUserName())
-                .userEmail(user.getUserEmail())
+                .userAge(user.getUserAge())
                 .userGender(user.getUserGender())
                 .build();
     }
@@ -59,8 +56,7 @@ public class User {
         return User.builder()
                 .userId(userDto.getUserId())
                 .userPw(userDto.getUserPw())
-                .userName(userDto.getUserName())
-                .userEmail(userDto.getUserEmail())
+                .userAge(userDto.getUserAge())
                 .userGender(userDto.getUserGender())
                 .build();
     }
