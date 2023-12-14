@@ -26,10 +26,9 @@ public class Hospital {
 
 
     @Builder
-    public Hospital(Long hospitalId, String hospitalName, String hospitalAddress
+    public Hospital(String hospitalName, String hospitalAddress
             , String hospitalCode, String hospitalPost, String hospitalTell
             , double hospitalLongitude, double hospitalLatitude) {
-        this.hospitalId = hospitalId;
         this.hospitalName = hospitalName;
         this.hospitalAddress = hospitalAddress;
         this.hospitalCode = hospitalCode;
@@ -54,7 +53,6 @@ public class Hospital {
 
     public static Hospital toEntity(HospitalDto hospitalDto) {
         return Hospital.builder()
-                .hospitalId(hospitalDto.getHospitalId())
                 .hospitalName(hospitalDto.getHospitalName())
                 .hospitalAddress(hospitalDto.getHospitalAddress())
                 .hospitalCode(hospitalDto.getHospitalCode())

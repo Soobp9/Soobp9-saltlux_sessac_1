@@ -1,13 +1,13 @@
 package com.example.sesac.review.dto;
 
-import jakarta.persistence.Id;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 public class ReviewSumDto {
-    @Id
     private Long sumId;
+    private Long hospitalId;
+    private String hospitalName;
     private Long positiveReviewCnt;
     private Long negativeReviewCnt;
     private Long reviewTotalCnt;

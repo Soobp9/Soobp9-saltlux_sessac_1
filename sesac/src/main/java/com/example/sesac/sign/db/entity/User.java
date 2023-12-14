@@ -10,11 +10,9 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.hibernate.annotations.DynamicInsert;
 
 @Entity
 @NoArgsConstructor
-@DynamicInsert
 @Getter
 @Slf4j
 public class User {
@@ -33,9 +31,8 @@ public class User {
     //가입날짜, 생일, ... 추가 필요!
 
     @Builder
-    public User(Long userSequence, String userId, String userPw
+    public User(String userId, String userPw
             , Integer userAge, String userGender) {
-        this.userSequence = userSequence;
         this.userId = userId;
         this.userPw = userPw;
         this.userAge = userAge;

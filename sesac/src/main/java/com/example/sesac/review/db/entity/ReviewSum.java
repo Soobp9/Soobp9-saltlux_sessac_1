@@ -28,22 +28,13 @@ public class ReviewSum {
     public static ReviewSumDto toDto(ReviewSum reviewsum) {
         return ReviewSumDto.builder()
                 .sumId(reviewsum.getSumId())
+                .hospitalId(reviewsum.hospital.getHospitalId())
+                .hospitalName(reviewsum.hospital.getHospitalName())
                 .positiveReviewCnt(reviewsum.getPositiveReviewCnt())
                 .negativeReviewCnt(reviewsum.getNegativeReviewCnt())
                 .reviewTotalCnt(reviewsum.getReviewTotalCnt())
                 .positivePercentage(reviewsum.getPositivePercentage())
                 .negativePercentage(reviewsum.getNegativePercentage())
-                .build();
-    }
-
-    public static ReviewSum toEntity(ReviewSumDto reviewSumDto) {
-        return ReviewSum.builder()
-                .sumId(reviewSumDto.getSumId())
-                .positiveReviewCnt(reviewSumDto.getPositiveReviewCnt())
-                .negativeReviewCnt(reviewSumDto.getNegativeReviewCnt())
-                .reviewTotalCnt(reviewSumDto.getReviewTotalCnt())
-                .positivePercentage(reviewSumDto.getPositivePercentage())
-                .negativePercentage(reviewSumDto.getNegativePercentage())
                 .build();
     }
 }

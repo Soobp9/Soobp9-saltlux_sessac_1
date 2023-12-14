@@ -20,10 +20,13 @@ public class HospitalReview {
     private String content;
 
 
-//    public static HospitalReviewDto toDto(HospitalReview hospitalReview){
-//        return HospitalReviewDto.builder()
-//                .departmentId(hospitalReview.get)
-//    }
+    public static HospitalReviewDto toDto(HospitalReview hospitalReview) {
+        return HospitalReviewDto.builder()
+                .reviewId(hospitalReview.reviewId)
+                .hospitalName(hospitalReview.hospital.getHospitalName())
+                .content(hospitalReview.content)
+                .build();
+    }
 
 
 }

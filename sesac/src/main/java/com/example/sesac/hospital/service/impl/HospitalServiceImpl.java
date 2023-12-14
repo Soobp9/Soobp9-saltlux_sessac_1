@@ -7,6 +7,7 @@ import com.example.sesac.hospital.service.HospitalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,6 +29,7 @@ public class HospitalServiceImpl implements HospitalService {
 
     @Override
     public List<HospitalDto> getHospitalList(String hospitalDepartment) {
-        return hospitalRepository.findAllByHospitalDepartment(hospitalDepartment).stream().map(Hospital::toDto).collect(Collectors.toList());
+        return new ArrayList<>();
+//        return hospitalRepository.findAllByHospitalDepartment(hospitalDepartment).stream().map(Hospital::toDto).collect(Collectors.toList());
     }
 }
