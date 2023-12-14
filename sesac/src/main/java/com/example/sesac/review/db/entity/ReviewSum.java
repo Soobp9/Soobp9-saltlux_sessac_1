@@ -1,11 +1,8 @@
 package com.example.sesac.review.db.entity;
 
+import com.example.sesac.hospital.db.entity.Hospital;
 import com.example.sesac.review.dto.ReviewSumDto;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import lombok.Builder;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -17,26 +14,16 @@ public class ReviewSum {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long sumId;
-//    @ManyToOne
-//    @JoinColumn(name = "hospital_id")
-//    private Hospital hospital;
+
+    @ManyToOne
+    @JoinColumn(name = "hospital_id", insertable = false, updatable = false)
+    private Hospital hospital;
 
     private Long positiveReviewCnt;
     private Long negativeReviewCnt;
     private Long reviewTotalCnt;
     private double positivePercentage;
     private double negativePercentage;
-
-
-    @Builder
-    public ReviewSum(Long sumId, Long positiveReviewCnt, Long negativeReviewCnt, Long reviewTotalCnt, double positivePercentage, double negativePercentage) {
-        this.sumId = getSumId();
-        this.positiveReviewCnt = getPositiveReviewCnt();
-        this.negativeReviewCnt = getNegativeReviewCnt();
-        this.reviewTotalCnt = getReviewTotalCnt();
-        this.positivePercentage = getPositivePercentage();
-        this.negativePercentage = getNegativePercentage();
-    }
 
     public static ReviewSumDto toDto(ReviewSum reviewsum) {
         return ReviewSumDto.builder()

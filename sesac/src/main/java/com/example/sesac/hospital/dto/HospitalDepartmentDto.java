@@ -6,15 +6,16 @@ import lombok.Getter;
 @Getter
 public class HospitalDepartmentDto {
     private Long departmentId;
-    //hospitalId;
-    private String hospital_middle;
-    private String hospital_major;
+    private Long hospitalId;
+    private String hospitalMiddle;
+    private String hospitalMajor;
 
 
     @Builder
-    public HospitalDepartmentDto(Long departmentId, String hospital_middle, String hospital_major) {
+    public HospitalDepartmentDto(Long departmentId, Long hospitalId, String hospitalMiddle, String hospitalMajor) {
         this.departmentId = departmentId;
-        this.hospital_middle = hospital_middle;
-        this.hospital_major = hospital_major;
+        this.hospitalId = hospitalId;
+        this.hospitalMiddle = hospitalMiddle;
+        this.hospitalMajor = hospitalMajor;
     }
 }

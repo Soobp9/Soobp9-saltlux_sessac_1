@@ -1,19 +1,24 @@
 package com.example.sesac.review.db.entity;
 
-import lombok.Builder;
+import com.example.sesac.hospital.db.entity.Hospital;
+import com.example.sesac.review.dto.HospitalReviewDto;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
+@Entity
+@Getter
+@NoArgsConstructor
 public class HospitalReview {
-    private Long departmentId;
-    //hospitalId;
-    private String hospital_middle;
-    private String hospital_major;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long reviewId;
 
-    @Builder
-    public HospitalReview(Long departmentId, String hospital_middle, String hospital_major) {
-        this.departmentId = departmentId;
-        this.hospital_middle = hospital_middle;
-        this.hospital_major = hospital_major;
-    }
+    @ManyToOne
+    @JoinColumn(name = "hospital_id", insertable = false, updatable = false)
+    private Hospital hospital;
+    private String content;
+
 
 //    public static HospitalReviewDto toDto(HospitalReview hospitalReview){
 //        return HospitalReviewDto.builder()

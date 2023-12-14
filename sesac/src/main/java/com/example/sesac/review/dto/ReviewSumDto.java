@@ -15,15 +15,17 @@ public class ReviewSumDto {
     private double negativePercentage;
 
     @Builder
-    public ReviewSumDto(Long sumId, Long positiveReviewCnt, Long negativeReviewCnt
-            , Long reviewTotalCnt, double positivePercentage, double negativePercentage) {
-        this.sumId = getSumId();
-        this.positiveReviewCnt = getPositiveReviewCnt();
-        this.negativeReviewCnt = getNegativeReviewCnt();
-        this.reviewTotalCnt = getReviewTotalCnt();
-        this.positivePercentage = getPositivePercentage();
-        this.negativePercentage = getNegativePercentage();
-
+    public ReviewSumDto(Long sumId, Long hospitalId, String hospitalName
+            , Long positiveReviewCnt, Long negativeReviewCnt, Long reviewTotalCnt
+            , double positivePercentage, double negativePercentage) {
+        this.sumId = sumId;
+        this.hospitalId = hospitalId;
+        this.hospitalName = hospitalName;
+        this.positiveReviewCnt = positiveReviewCnt;
+        this.negativeReviewCnt = negativeReviewCnt;
+        this.reviewTotalCnt = reviewTotalCnt;
+        this.positivePercentage = positivePercentage;
+        this.negativePercentage = negativePercentage;
     }
 }
 
