@@ -1,31 +1,28 @@
-package com.example.sesac.review.dto;
+package com.example.sesac.hospital.dto;
 
-import lombok.Builder;
+import com.querydsl.core.annotations.QueryProjection;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 @Getter
-public class ReviewSumDto {
-    private Long sumId;
+@NoArgsConstructor
+public class HospitalReviewSumDto {
     private Long hospitalId;
     private String hospitalName;
     private Long positiveReviewCnt;
     private Long negativeReviewCnt;
-    private Long reviewTotalCnt;
     private Double positivePercentage;
     private Double negativePercentage;
+    private Long reviewTotalCnt;
 
-    @Builder
-    public ReviewSumDto(Long sumId, Long hospitalId, String hospitalName
-            , Long positiveReviewCnt, Long negativeReviewCnt, Long reviewTotalCnt
-            , Double positivePercentage, Double negativePercentage) {
-        this.sumId = sumId;
+    @QueryProjection
+    public HospitalReviewSumDto(Long hospitalId, String hospitalName, Long positiveReviewCnt, Long negativeReviewCnt, Double positivePercentage, Double negativePercentage, Long reviewTotalCnt) {
         this.hospitalId = hospitalId;
         this.hospitalName = hospitalName;
         this.positiveReviewCnt = positiveReviewCnt;
         this.negativeReviewCnt = negativeReviewCnt;
-        this.reviewTotalCnt = reviewTotalCnt;
         this.positivePercentage = positivePercentage;
         this.negativePercentage = negativePercentage;
+        this.reviewTotalCnt = reviewTotalCnt;
     }
 }
-

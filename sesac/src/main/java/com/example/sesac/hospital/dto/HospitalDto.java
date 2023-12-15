@@ -2,9 +2,7 @@ package com.example.sesac.hospital.dto;
 
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 
-@Getter
 @Data
 public class HospitalDto {
     private Long hospitalId;

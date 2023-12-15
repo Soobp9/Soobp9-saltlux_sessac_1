@@ -2,12 +2,13 @@ package com.example.sesac.hospital.service.impl;
 
 import com.example.sesac.hospital.db.entity.Hospital;
 import com.example.sesac.hospital.db.repository.HospitalRepository;
+import com.example.sesac.hospital.dto.HospitalDepReq;
 import com.example.sesac.hospital.dto.HospitalDto;
+import com.example.sesac.hospital.dto.HospitalReviewSumDto;
 import com.example.sesac.hospital.service.HospitalService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -28,8 +29,8 @@ public class HospitalServiceImpl implements HospitalService {
     }
 
     @Override
-    public List<HospitalDto> getHospitalList(String hospitalDepartment) {
-        return new ArrayList<>();
+    public List<HospitalReviewSumDto> getHospitalList(HospitalDepReq hospitalDepReq) {
+        return hospitalRepository.getHospital(hospitalDepReq);
 //        return hospitalRepository.findAllByHospitalDepartment(hospitalDepartment).stream().map(Hospital::toDto).collect(Collectors.toList());
     }
 }
