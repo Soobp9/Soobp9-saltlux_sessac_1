@@ -2,6 +2,7 @@ package com.example.sesac.sign.controller;
 
 
 import com.example.sesac.sign.dto.LoginDto;
+import com.example.sesac.sign.dto.LoginResp;
 import com.example.sesac.sign.dto.UserDto;
 import com.example.sesac.sign.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -32,7 +33,7 @@ public class SignController {
 
     //로그인
     @PostMapping("login")
-    public ResponseEntity<String> login(@RequestBody LoginDto loginDto) {
+    public ResponseEntity<LoginResp> login(@RequestBody LoginDto loginDto) {
 //        session = request.getSession();
         //System.out.print(loginDto);
         UserDto user = userService.loginUser(loginDto);
@@ -40,10 +41,10 @@ public class SignController {
             //로그인 성공
 //            session.setAttribute("userSequence", user.getUserSequence());
             log.info("로그인 성공");
-            return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
+            return new ResponseEntity<>(new LoginResp(SUCCESS, user.getUserSequence()), HttpStatus.OK);
         } else {
             log.info("로그인 실패");
-            return new ResponseEntity<>(FAIL, HttpStatus.OK);
+            return new ResponseEntity<>(new LoginResp(FAIL), HttpStatus.OK);
         }
 
     }
