@@ -43,7 +43,7 @@ public class SignController {
             //로그인 성공
 //            session.setAttribute("userSequence", user.getUserSequence());
             log.info("로그인 성공");
-            return new ResponseEntity<>(new LoginResp(SUCCESS, user.getUserSequence()), HttpStatus.OK);
+            return new ResponseEntity<>(new LoginResp(SUCCESS, user.getUserSequence(), user.getUserId()), HttpStatus.OK);
         } else {
             log.info("로그인 실패");
             return new ResponseEntity<>(new LoginResp(FAIL), HttpStatus.OK);

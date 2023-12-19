@@ -7,10 +7,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class LoginResp {
     String result;
-    Long userId;
+    Long userSeq;
+    String userId;
 
-    public LoginResp(String result, Long userId) {
+    public LoginResp(String result, Long userSeq, String userId) {
         this.result = result;
+        this.userSeq = userSeq;
         this.userId = userId;
     }
 

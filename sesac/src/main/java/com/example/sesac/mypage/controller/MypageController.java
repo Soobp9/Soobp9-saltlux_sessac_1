@@ -20,7 +20,7 @@ public class MypageController {
     //회원 정보 조회
     //sequence로 구현해두고 추후에 token으로 변경 예정.
     @GetMapping("{userSequence}")
-    public ResponseEntity<UserDto> getUserInfo(@PathVariable Long userSequence) {
+    public ResponseEntity<UserDto> getUserInfo(@PathVariable(name = "userSequence") Long userSequence) {
         return new ResponseEntity<>(userService.getUserInfo(userSequence), HttpStatus.OK);
 
     }
