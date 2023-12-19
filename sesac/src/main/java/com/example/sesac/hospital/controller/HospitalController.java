@@ -25,7 +25,7 @@ public class HospitalController {
 
     //     특정 병원 정보 조회
     @GetMapping("/{hospitalId}")
-    public ResponseEntity<HospitalDto> getOneHospital(@PathVariable Long hospitalId) {
+    public ResponseEntity<HospitalDto> getOneHospital(@PathVariable(name = "hospitalId") Long hospitalId) {
         return new ResponseEntity<>(hospitalService.getHospital(hospitalId), HttpStatus.OK);
     }
 

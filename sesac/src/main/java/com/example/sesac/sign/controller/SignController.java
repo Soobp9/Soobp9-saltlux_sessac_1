@@ -26,6 +26,7 @@ public class SignController {
     //회원 등록
     @PostMapping
     public ResponseEntity<String> createUser(@RequestBody UserDto userDto) {
+        log.info("회원가입");
         userService.createUser(userDto);
         return new ResponseEntity<>(SUCCESS, HttpStatus.OK);
 
@@ -34,6 +35,7 @@ public class SignController {
     //로그인
     @PostMapping("login")
     public ResponseEntity<LoginResp> login(@RequestBody LoginDto loginDto) {
+        log.info("로그인");
 //        session = request.getSession();
         //System.out.print(loginDto);
         UserDto user = userService.loginUser(loginDto);
