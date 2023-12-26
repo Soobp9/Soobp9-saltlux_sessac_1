@@ -7,8 +7,8 @@ from pymongo import MongoClient
 
 host = "localhost"
 port = "27017"
-client2 = MongoClient('mongodb+srv://HealthCube:HealthCube@healthcube.urxe61y.mongodb.net/')
-#'mongodb+srv://<HealthCube>:<HealthCube>@healthcube.urxe61y.mongodb.net/?retryWrites=true&w=majority' ???
+client2 = MongoClient('mongodb+srv://*********:*********@*********.*******.mongodb.net/')
+
 #print(mongo)
 db = client2["HealthCube"]
 doc = {
