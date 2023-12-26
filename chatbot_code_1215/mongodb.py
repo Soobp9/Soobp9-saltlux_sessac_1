@@ -6,7 +6,7 @@
 # from datetime import datetime
 
 # # MongoDB 연결
-# client = MongoClient('mongodb+srv://HealthCube:HealthCube@healthcube.urxe61y.mongodb.net/')
+# client = MongoClient('mongodb+srv://*********:*********@*********.*******.mongodb.net/')
 # db = client["HealthCube"]  # 데이터베이스 선택
 
 # def insert_user_chat(user_id, message, db_name=None, collection_name=None):
@@ -47,7 +47,7 @@ def connect_to_mongo():
     # host = "localhost"
     # port = "27017"
     # MongoDB 클라이언트 연결
-    client2 = MongoClient(client = MongoClient('mongodb+srv://HealthCube:HealthCube@healthcube.urxe61y.mongodb.net/'))
+    client2 = MongoClient(client = MongoClient('mongodb+srv://*********:*********@*********.*******.mongodb.net/'))
     return client2
 
 # 사용자 채팅 데이터 삽입 함수
